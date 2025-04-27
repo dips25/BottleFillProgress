@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottleProgress">
+        <attr name="type" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="sequence" value="1"/>
+            <enum name="random" value="2"/>
+        </attr>
+
+        <attr name="duration" format="integer"/>
+        <attr name="waterColor" format="color"/>
+
+    </declare-styleable>
+</resources>
