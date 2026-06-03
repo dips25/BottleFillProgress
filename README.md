@@ -2,89 +2,101 @@
 
 ## Add it in your root settings.gradle at the end of repositories:
 
-<code> ```dependencyResolutionManagement 
+ ```
+dependencyResolutionManagement 
 { 
 repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS) 
 repositories {
  mavenCentral() 
  maven { url 'https://jitpack.io' } 
 } 
-} ```</code>
+} 
+```
 
 ### Add the dependency
-
-`dependencies {`
-	        `implementation 'com.github.dips25:BottleFillProgress:v1.0-beta'`
-	     `}`
+`dependencies {implementation 'com.github.dips25:BottleFillProgress:v1.0-beta'}`
 
 ### Use in XML(keep width/height wrap_content always)
 
- * `<com.anim.bottlefillanimationprogress.BottleProgress`
-*         `android:layout_width="wrap_content"`
-*         `android:layout_height="wrap_content"`
-*         `app:layout_constraintTop_toTopOf="parent"`
-*         `app:layout_constraintBottom_toBottomOf="parent"`
-*         `app:layout_constraintStart_toStartOf="parent"`
-*         `app:layout_constraintEnd_toEndOf="parent"`
-*         `app:type="normal"`
-*         `app:duration="1000"`
-*         `app:waterColor="@android:color/holo_blue_bright"`
-*         `android:id="@+id/bottle_progress"/>`
+```
+<com.anim.bottlefillanimationprogress.BottleProgress
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:type="normal"
+         app:duration="1000"
+         app:waterColor="@android:color/holo_blue_bright"
+         android:id="@+id/bottle_progress"/>
+```
 
 
 ### Add in activity/fragment/dialog
 
- `bp = findViewById<BottleProgress>(R.id.bottle_progress)`
+```
+bp = findViewById<BottleProgress>(R.id.bottle_progress)
 
-        `//set the colors(default blue)`
-        `bp!!.setColors(intArrayOf(android.R.color.holo_purple`
-            `,android.R.color.holo_red_dark`
-            `,android.R.color.holo_green_light))`
+        //set the colors(default blue)
+        bp!!.setColors(intArrayOf(android.R.color.holo_purple
+            ,android.R.color.holo_red_dark
+            ,android.R.color.holo_green_light))
+
+```
 
 ### Start in onResume()
 
-`override fun onResume() {`
+```
+override fun onResume() {
 
-        `super.onResume()`
+        super.onResume()
 
-        `//start when needed`
-        `bp!!.startAnim()`
-    `}`
+        //start when needed
+        bp!!.startAnim()
+    }
+
+```
 
 ### Always pause in onPause()/onStop()
 
-`override fun onPause() {`
+```
+override fun onPause() {
 
-        `super.onPause()`
+        super.onPause()
 
-        `//stop when not needed(onPause())`
-        `bp!!.stopAnim()`
-    `}`
+        //stop when not needed(onPause())
+        bp!!.stopAnim()
+    }
 
-    `override fun onStop() {`
 
-        `super.onStop()`
+    
+override fun onStop() {
 
-        `//stop when not needed(onStop)`
-        `bp!!.stopAnim()`
-    `}`
+        super.onStop()
+
+        //stop when not needed(onStop)
+        bp!!.stopAnim()
+    }
+```
 
 ### Can start/stop on buton click also
 
-`val button: Button = findViewById(R.id.button_click)`
+```
+val button: Button = findViewById(R.id.button_click)
 
-        `button.setOnClickListener {`
+        button.setOnClickListener {
 
-            `bp!!.startAnim()`
-        `}`
+            bp!!.startAnim()
+        }
 
-`val stopButton = findViewById<Button>(R.id.button_stop)`
+val stopButton = findViewById<Button>(R.id.button_stop)
 
-  `stopButton.setOnClickListener {`
+  stopButton.setOnClickListener {
 
-            `bp!!.stopAnim()`
-        `}`
-
+            bp!!.stopAnim()
+        }
+```
         
 
 https://github.com/user-attachments/assets/dd1b8677-0f20-408e-949d-23b6fbe83207
